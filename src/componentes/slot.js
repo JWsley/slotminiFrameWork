@@ -1,4 +1,18 @@
-class sloty extends HTMLElement{
+
+ 
+
+
+
+ function background(){
+    
+    var inpt = document.querySelector('#inpt');
+
+    let url = inpt.value;
+    console.log(url)
+    var backg = String(url);
+    console.log(backg)
+    
+    class sloty extends HTMLElement{
 
 
     constructor(){
@@ -14,9 +28,11 @@ class sloty extends HTMLElement{
 
         const slot = document.createElement('div');
         slot.setAttribute('class','slot');
+        slot.setAttribute('id','slot');
 
 
         const nameCurso = document.createElement('h3');
+
         nameCurso.setAttribute('class','name-curso');
         nameCurso.textContent = (this.getAttribute('Nome--Curso') || 'Insira um Nome.');
 
@@ -309,7 +325,8 @@ class sloty extends HTMLElement{
         
         
             .slot{
-                background: url('./src/img/curso1.png');
+                background: url(${backg}) no-repeat;
+                background-size:cover;
             }`
 
         return style;
@@ -323,4 +340,4 @@ class sloty extends HTMLElement{
 
 }
 
-customElements.define('slot-custom',sloty);
+customElements.define('slot-custom',sloty);}
